@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center my-4">
+    <h1 class="display-4">The Claim System's Harbour</h1>
+    <p>The Contract Monthly Claim System stands as a testament to innovation in administrative processes, offering a glimpse into the future of streamlined claim management. With its user-centric design and seamless integration of features, the CMCS aims to revolutionize the way claims are processed and approved. By automating repetitive tasks and providing intuitive interfaces, the system empowers both lecturers and administrators to focus on more strategic initiatives, ultimately enhancing organizational efficiency and productivity.</p>
+    <p>Explore the functionalities of our application:</p>
+    <div class="btn-group" role="group" aria-label="Quick Access">
+        <a href="@Url.Action("SubmitClaim", "Claims")" class="btn btn-primary">Create Claim</a>
+        <a href="@Url.Action("ManageLecturerData", "Claims")" class="btn btn-secondary">Manage Lecturer Data</a>
+        <a href="@Url.Action("ViewInvoices", "Claims")" class="btn btn-success">View Invoices</a>
+    </div>
+</div>

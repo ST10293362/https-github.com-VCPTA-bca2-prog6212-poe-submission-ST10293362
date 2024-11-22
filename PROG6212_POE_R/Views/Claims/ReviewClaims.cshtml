@@ -1,0 +1,35 @@
+﻿@model IEnumerable<PROG6212_POE_R.Models.Claim>
+
+<h2 class="text-center my-4">Review Claims</h2>
+<table class="table table-striped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Lecturer Name</th>
+            <th>Hourly Rate</th>
+            <th>Hours Worked</th>
+            <th>Total Payment</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in Model)
+        {
+            <tr>
+                <td>@claim.LecturerName</td>
+                <td>@claim.HourlyRate.ToString("C")</td>
+                <td>@claim.HoursWorked</td>
+                <td>@claim.TotalPayment.ToString("C")</td>
+                <td>
+                    <form asp-action="ApproveClaim" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@claim.Id" />
+                        <button type="submit" class="btn btn-success btn-sm">Approve</button>
+                    </form>
+                    <form asp-action="RejectClaim" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@claim.Id" />
+                        <button type="submit" class="btn btn-danger btn-sm">Reject</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

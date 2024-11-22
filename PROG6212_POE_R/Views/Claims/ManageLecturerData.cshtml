@@ -1,0 +1,28 @@
+﻿@model IEnumerable<PROG6212_POE_R.Models.Claim>
+
+<h2 class="text-center my-4">Manage Lecturer Data</h2>
+<table class="table table-striped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Lecturer Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in Model)
+        {
+            <tr>
+                <td>@claim.LecturerName</td>
+                <td>@claim.Email</td>
+                <td>
+                    <form asp-action="UpdateLecturerData" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@claim.Id" />
+                        <input type="email" name="email" value="@claim.Email" required />
+                        <button type="submit" class="btn btn-primary btn-sm">Update Email</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

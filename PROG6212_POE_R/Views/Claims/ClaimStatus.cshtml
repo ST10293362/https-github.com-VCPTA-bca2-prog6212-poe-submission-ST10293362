@@ -1,0 +1,28 @@
+﻿@model IEnumerable<PROG6212_POE_R.Models.Claim>
+
+<h2 class="text-center my-4">Claim Status</h2>
+<table class="table table-striped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Lecturer Name</th>
+            <th>Hourly Rate</th>
+            <th>Hours Worked</th>
+            <th>Total Payment</th>
+            <th>Supporting Document</th>
+            <th>Approval Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in Model)
+        {
+            <tr>
+                <td>@claim.LecturerName</td>
+                <td>@claim.HourlyRate.ToString("C")</td>
+                <td>@claim.HoursWorked</td>
+                <td>@claim.TotalPayment.ToString("C")</td>
+                <td><a href="@Url.Content("~/uploads/" + claim.SupportingDocument)" target="_blank" class="btn btn-secondary btn-sm">View Document</a></td>
+                <td>@(claim.IsApproved ? "<span class='text-success'>Approved</span>" : "Pending")</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<PROG6212_POE_R.Models.Invoice>
+
+<h2 class="text-center my-4">Invoices</h2>
+<table class="table table-striped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Invoice ID</th>
+            <th>Lecturer Name</th>
+            <th>Email</th>
+            <th>Total Amount</th>
+            <th>Invoice Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var invoice in Model)
+        {
+            <tr>
+                <td>@invoice.InvoiceId</td>
+                <td>@invoice.LecturerName</td>
+                <td>@invoice.Email</td>
+                <td>@invoice.TotalAmount.ToString("C")</td>
+                <td>@invoice.InvoiceDate.ToShortDateString()</td>
+                <td>
+                    <a href="@Url.Action("GeneratePdfInvoice", "Claims", new { id = invoice.InvoiceId })" class="btn btn-info btn-sm">Download PDF</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

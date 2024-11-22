@@ -1,0 +1,69 @@
+﻿@model PROG6212_POE_R.Models.Invoice
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Invoice @Model.InvoiceId</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .total {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Invoice @Model.InvoiceId</h1>
+    <p><strong>Lecturer Name:</strong> @Model.LecturerName</p>
+    <p><strong>Email:</strong> @Model.Email</p>
+    <p><strong>Invoice Date:</strong> @Model.InvoiceDate.ToShortDateString()</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Total Amount</td>
+                <td class="total">@Model.TotalAmount.ToString("C")</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <footer style="margin-top: 30px; text-align: center;">
+        <p>Thank you for your business!</p>
+    </footer>
+</body>
+</html>
